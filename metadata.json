@@ -1,0 +1,8 @@
+{
+  "name": "THE WAY OF SALVATION – AI Bible Presentation Studio",
+  "description": "Present the Word. Share the Truth. Transform Lives. A professional trilingual (Tamil, English, Sinhala) AI Bible presentation studio for pastors, churches, and evangelists.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

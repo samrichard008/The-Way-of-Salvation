@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #050e1b;
+  --color-navy-900: #081629;
+  --color-navy-800: #10243c;
+  --color-navy-700: #183252;
+  --color-gold-300: #ebd49d;
+  --color-gold-400: #e0c17d;
+  --color-gold-500: #d4af67;
+  --color-gold-600: #b69047;
+  --color-cream-100: #f5f1e8;
+  --color-cream-200: #e8e0d0;
+
+  --font-display: "Cinzel", "Cormorant Garamond", Georgia, serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-tamil: "Noto Sans Tamil", "Plus Jakarta Sans", sans-serif;
+  --font-sinhala: "Noto Sans Sinhala", "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    background-color: #081629;
+    color: #f5f1e8;
+    font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  /* Custom refined studio scrollbars */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #061120;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1c3556;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d4af67;
+  }
+}
+
+.font-lang-ta {
+  font-family: "Noto Sans Tamil", "Plus Jakarta Sans", sans-serif;
+}
+
+.font-lang-si {
+  font-family: "Noto Sans Sinhala", "Plus Jakarta Sans", sans-serif;
+}
+
+.font-lang-en {
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
