@@ -27,7 +27,26 @@ export interface StudioBackdropAsset {
   defaultPrompt: string;
 }
 
-export const HERO_CROSS_IMAGE = '/src/assets/images/hero_cinematic_cross_1795665761875.jpg';
+const BASE = (import.meta.env.BASE_URL || '/').replace(/\/?$/, '/');
+
+export function resolveAssetUrl(pathOrUrl: string): string {
+  if (!pathOrUrl) return '';
+  if (
+    pathOrUrl.startsWith('data:') ||
+    pathOrUrl.startsWith('http://') ||
+    pathOrUrl.startsWith('https://') ||
+    pathOrUrl.startsWith('blob:')
+  ) {
+    return pathOrUrl;
+  }
+  const stripped = pathOrUrl.replace(/^\/+/, '');
+  if (BASE !== '/' && pathOrUrl.startsWith(BASE)) {
+    return pathOrUrl;
+  }
+  return `${BASE}${stripped}`;
+}
+
+export const HERO_CROSS_IMAGE = resolveAssetUrl('src/assets/images/hero_cinematic_cross_1795665761875.jpg');
 
 export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
   {
@@ -35,7 +54,7 @@ export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
     slideHint: 1,
     title: 'Garden of Eden Dawn',
     subtitle: 'Slide 01 · Original Man',
-    imageUrl: '/src/assets/images/slide_01_eden_garden_1795665763970.jpg',
+    imageUrl: resolveAssetUrl('src/assets/images/slide_01_eden_garden_1795665763970.jpg'),
     defaultPrompt:
       'A beautiful Garden of Eden at golden sunrise, Adam and Eve in the distance, crystal river, lush olive and fruit trees, warm heavenly sunlight, peaceful Biblical atmosphere, 16:9 cinema, no text.',
   },
@@ -44,7 +63,7 @@ export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
     slideHint: 2,
     title: 'Darkening Eden & Forbidden Fruit',
     subtitle: 'Slide 02 · Fundamental Problems',
-    imageUrl: '/src/assets/images/slide_02_forbidden_fruit_1795665764150.jpg',
+    imageUrl: resolveAssetUrl('src/assets/images/slide_02_forbidden_fruit_1795665764150.jpg'),
     defaultPrompt:
       'Forbidden fruit hanging on a shadowed branch in a darkening Garden of Eden as storm clouds gather, dramatic chiaroscuro lighting symbolizing spiritual separation, 16:9 cinema, no text.',
   },
@@ -53,7 +72,7 @@ export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
     slideHint: 3,
     title: 'Burdened Chains in Mist',
     subtitle: 'Slide 03 · State of Non-believer',
-    imageUrl: '/src/assets/images/slide_03_state_nonbeliever_1795665764374.jpg',
+    imageUrl: resolveAssetUrl('src/assets/images/slide_03_state_nonbeliever_1795665764374.jpg'),
     defaultPrompt:
       'Heavy weathered iron chains on cold stone, solitary distressed human silhouette in deep midnight mist, dark atmospheric Biblical drama, 16:9 cinema, no text.',
   },
@@ -62,7 +81,7 @@ export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
     slideHint: 4,
     title: 'The Impassable Canyon',
     subtitle: 'Slide 04 · Human Efforts',
-    imageUrl: '/src/assets/images/slide_04_human_efforts_canyon_1795665766455.jpg',
+    imageUrl: resolveAssetUrl('src/assets/images/slide_04_human_efforts_canyon_1795665766455.jpg'),
     defaultPrompt:
       'A vast deep rocky canyon separating humanity and God, three broken stone paths and fallen wooden bridges failing to cross the abyss, faint golden light on the far summit, 16:9 cinema, no text.',
   },
@@ -71,7 +90,7 @@ export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
     slideHint: 5,
     title: 'Illuminated Cross Bridge',
     subtitle: 'Slide 05 · God’s Method',
-    imageUrl: '/src/assets/images/slide_05_gods_method_cross_1795665766456.jpg',
+    imageUrl: resolveAssetUrl('src/assets/images/slide_05_gods_method_cross_1795665766456.jpg'),
     defaultPrompt:
       'A magnificent illuminated wooden cross connecting both cliffs across a deep rocky canyon, radiant royal gold light pouring across the midnight sky, 16:9 cinema, no text.',
   },
@@ -80,7 +99,7 @@ export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
     slideHint: 6,
     title: 'Royal Crown & Radiant Pathway',
     subtitle: 'Slide 06 · Three Roles of Christ',
-    imageUrl: '/src/assets/images/slide_06_three_roles_christ_1795665769728.jpg',
+    imageUrl: resolveAssetUrl('src/assets/images/slide_06_three_roles_christ_1795665769728.jpg'),
     defaultPrompt:
       'Ancient royal gold crown on carved stone beside a sunlit glowing pathway rising toward a radiant cross on a hilltop, deep navy and gold atmospheric depth, 16:9 cinema, no text.',
   },
@@ -89,7 +108,7 @@ export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
     slideHint: 7,
     title: 'Broken Iron Chains at Sunrise',
     subtitle: 'Slide 07 · Solution to All Problems',
-    imageUrl: '/src/assets/images/slide_07_broken_chains_freedom_1795665769127.jpg',
+    imageUrl: resolveAssetUrl('src/assets/images/slide_07_broken_chains_freedom_1795665769127.jpg'),
     defaultPrompt:
       'Shattered heavy iron chains on sunlit stone as radiant morning rays illuminate an open valley road with a person walking toward freedom, 16:9 cinema, no text.',
   },
@@ -98,7 +117,7 @@ export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
     slideHint: 8,
     title: 'Warm Light at the Wooden Door',
     subtitle: 'Slide 08 · How to Receive Salvation',
-    imageUrl: '/src/assets/images/slide_08_door_of_heart_1795665770098.jpg',
+    imageUrl: resolveAssetUrl('src/assets/images/slide_08_door_of_heart_1795665770098.jpg'),
     defaultPrompt:
       'Ancient arched wooden door slightly ajar in a dark stone room, warm luminous royal gold light streaming inward illuminating floating dust particles, reverent Biblical mood, 16:9 cinema, no text.',
   },
@@ -107,7 +126,7 @@ export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
     slideHint: 9,
     title: 'Sanctuary Kneeling in Prayer',
     subtitle: 'Slide 09 · Acceptance Prayer',
-    imageUrl: '/src/assets/images/slide_09_acceptance_prayer_1795665771019.jpg',
+    imageUrl: resolveAssetUrl('src/assets/images/slide_09_acceptance_prayer_1795665771019.jpg'),
     defaultPrompt:
       'A person kneeling humbly in sincere prayer inside a quiet ancient stone sanctuary beneath a warm vertical shaft of golden heavenly light, deep navy shadows, 16:9 cinema, no text.',
   },
@@ -116,7 +135,7 @@ export const STUDIO_BACKDROPS: StudioBackdropAsset[] = [
     slideHint: 10,
     title: 'White Dove Over the World',
     subtitle: 'Slide 10 · Blessings of God’s Children',
-    imageUrl: '/src/assets/images/slide_10_blessings_dove_1795665774445.jpg',
+    imageUrl: resolveAssetUrl('src/assets/images/slide_10_blessings_dove_1795665774445.jpg'),
     defaultPrompt:
       'Radiant white dove soaring across a majestic deep navy and royal gold dawn sky above luminous clouds and a sunlit curved globe horizon, rays of peace and hope, 16:9 cinema, no text.',
   },
